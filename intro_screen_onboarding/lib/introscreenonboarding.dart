@@ -11,6 +11,7 @@ class IntroScreenOnboarding extends StatefulWidget {
   final Color? backgroudColor;
   final Color? foregroundColor;
   final TextStyle? skipTextStyle;
+  final String? skipText;
 
   /// Callback on Skip Button Pressed
   final Function()? onTapSkipButton;
@@ -21,6 +22,7 @@ class IntroScreenOnboarding extends StatefulWidget {
     this.backgroudColor,
     this.foregroundColor,
     this.skipTextStyle = const TextStyle(fontSize: 20),
+    this.skipText,
   }) : super(key: key);
 
   @override
@@ -51,7 +53,8 @@ class _IntroScreenOnboardingState extends State<IntroScreenOnboarding> {
                       alignment: Alignment.topRight,
                       child: TextButton(
                         onPressed: widget.onTapSkipButton,
-                        child: Text('Skip', style: widget.skipTextStyle),
+                        child: Text(widget.skipText ?? 'Skip',
+                            style: widget.skipTextStyle),
                       ),
                     ),
                   ],
